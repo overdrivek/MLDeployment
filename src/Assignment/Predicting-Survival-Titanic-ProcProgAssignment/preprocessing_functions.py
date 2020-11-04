@@ -44,22 +44,14 @@ def add_missing_indicator(df, var):
 
 
     
-def impute_na(df_train,var,replace_by='Missing', add_na_columns=True):
+def impute_na(df_train,var,replace_by=0, add_na_columns=True):
     # function replaces NA by value entered by user
     # or by string Missing (default behaviour)
 
     if add_na_columns is True:
         df_train[var+'_na'] = np.where(df_train[var].isnull(),1,0)
 
-        if replace_by == 'mean':
-            replace_value = df_train[var].mean()
-        elif replace_by == 'median':
-            replace_value = df_train[var].median()
-        elif replace_by == 'mode':
-            replace_value = df_train[var].mode()
-        else:
-            replace_value = 'Missing'
-    df_train[var] = df_train[var].fillna(replace_value)
+    df_train[var] = df_train[var].fillna(replace_by)
 
     return df_train
 

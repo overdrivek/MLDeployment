@@ -15,7 +15,7 @@ def predict(data):
     
     # impute NA numerical
     for var in config.NUMERICAL_TO_IMPUTE:
-        X_test = pf.impute_na(X_test,var,replace_by='median', add_na_columns=True)
+        X_test = pf.impute_na(X_test,var,replace_by=config.IMPUTATION_DICT[var], add_na_columns=True)
 
     
     # Group rare labels

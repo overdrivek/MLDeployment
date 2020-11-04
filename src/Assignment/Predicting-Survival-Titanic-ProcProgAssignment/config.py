@@ -8,7 +8,9 @@ NORM_CONSTANT = 0.0005
 # ======= PARAMETERS ===============
 
 # imputation parameters
-IMPUTATION_DICT = {'cabin_variable':'cabin'}
+IMPUTATION_DICT = {'cabin_variable':'cabin',
+                   'age':28.0,
+                   'fare':14.4542}
 
 
 # encoding parameters

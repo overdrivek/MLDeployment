@@ -24,8 +24,8 @@ X_test = pf.add_missing_indicator(X_test,config.CATEGORICAL_VARS)
 
 # impute numerical variable
 for var in config.NUMERICAL_TO_IMPUTE:
-    X_train = pf.impute_na(X_train,var,replace_by='median',add_na_columns=True)
-    X_test = pf.impute_na(X_test, var, replace_by='median', add_na_columns=True)
+    X_train = pf.impute_na(X_train,var,replace_by=config.IMPUTATION_DICT[var],add_na_columns=True)
+    X_test = pf.impute_na(X_test, var, replace_by=config.IMPUTATION_DICT[var], add_na_columns=True)
 
 # Group rare labels
 X_train = pf.remove_rare_labels(X_train,config.FREQUENT_LABELS)
